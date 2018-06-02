@@ -57,6 +57,7 @@ public class PredicateForPeople {
         System.out.println(PredicateForPeople.filterPeople(peopleList,PredicateForPeople.ageMoreThan(20)));
         System.out.println(PredicateForPeople.filterPeople(peopleList,PredicateForPeople.isFemalAndAgeLessThan(20)));
 
+        System.out.println("test ssh accesss to github");
     }
 
 }
