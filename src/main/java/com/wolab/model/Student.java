@@ -1,4 +1,4 @@
-package com.wolab.functionInterface;
+package com.wolab.model;
 
 public class Student {
 
@@ -8,9 +8,9 @@ public class Student {
 
     private Double grade;
 
-    Double feeDiscount=0.0;
+    public Double feeDiscount=0.0;
 
-    Double baseFee =20000.0;
+    public Double baseFee =20000.0;
 
     public Student(String firstName,String lastName,Double grade){
         this.firstName=firstName;

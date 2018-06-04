@@ -1,4 +1,6 @@
-package com.wolab.functionInterface;
+package com.wolab.functionInterface.consumer;
+
+import com.wolab.model.Student;
 
 import java.util.function.Consumer;
 import java.util.function.Predicate;

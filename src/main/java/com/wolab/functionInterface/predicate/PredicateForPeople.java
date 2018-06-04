@@ -1,5 +1,7 @@
-package com.wolab.functionInterface;
+package com.wolab.functionInterface.predicate;
 
+
+import com.wolab.model.People;
 
 import java.util.Arrays;
 import java.util.List;

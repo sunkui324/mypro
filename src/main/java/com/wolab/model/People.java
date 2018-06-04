@@ -1,4 +1,4 @@
-package com.wolab.functionInterface;
+package com.wolab.model;
 
 public class People {
 
@@ -43,4 +43,6 @@ public class People {
         this.age = age;
         this.sex = sex;
     }
+
+    public People(){}
 }

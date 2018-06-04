@@ -1,4 +1,4 @@
-package com.wolab.functionInterface;
+package com.wolab.functionInterface.predicate;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.wolab.optional;
+package com.wolab.util.optional;
 
 
 import com.wolab.model.Champion;
@@ -9,16 +9,17 @@ import java.util.Optional;
 ;
 
 /**
- * 实现guava optionalAPI
+ * java optionalAPI
  * @author bruce.sun
  * @date 2018/6/1
  *
  */
-public class GuavaOptionalAPI {
+public class OptionalExample {
 
 
     /**
      *   名字为空 输出 默认值
+     *   map 接收一个Function 方法,改变原来的值.
      * @author bruce.sun
      * @date 2018/6/1
      * @param
@@ -50,7 +51,7 @@ public class GuavaOptionalAPI {
      *
      */
     public static String getNameThrowExceptionStr(User user){
-        return Optional.ofNullable(user).map(u->u.getName()).orElseThrow(IllegalArgumentException::new.);
+        return Optional.ofNullable(user).map(u->u.getName()).orElseThrow(IllegalArgumentException::new);
     }
 
     /**
@@ -71,8 +72,8 @@ public class GuavaOptionalAPI {
 
 
     public static void main(String[] args) {
-        System.out.println(GuavaOptionalAPI.getName(null));
-        System.out.println(GuavaOptionalAPI.getNameThrowException(null));
+        System.out.println(OptionalExample.getName(null));
+        System.out.println(OptionalExample.getNameThrowException(null));
 
     }
 
