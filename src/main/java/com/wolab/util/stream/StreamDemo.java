@@ -1,9 +1,6 @@
 package com.wolab.util.stream;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
@@ -127,37 +124,6 @@ public class StreamDemo {
 
         //3. String
         String str = stream.collect(Collectors.joining()).toString();
-
-
-        /**
-         * 流的操作
-         *
-         * Intermediate：
-         * map (mapToInt, flatMap 等)、 filter、 distinct、 sorted、 peek、 limit、 skip、 parallel、 sequential、 unordered
-         *
-         * Terminal：
-         * forEach、 forEachOrdered、 toArray、 reduce、 collect、 min、 max、 count、 anyMatch、 allMatch、 noneMatch、 findFirst、 findAny、 iterator
-         *
-         * Short-circuiting：
-         * anyMatch、 allMatch、 noneMatch、 findFirst、 findAny、 limit
-         *
-         *
-         * @author bruce.sun
-         * @date 2018/6/4
-         * @param [args]
-         * @return void
-         *
-         */
-
-
-        // map/flatMap
-        ArrayList worldList = new ArrayList();
-        worldList.add("adfafdads");
-        List<String> output = worldList.stream().map(String::toUpperCase).collect(Collectors.toList());
-
-        //https://www.ibm.com/developerworks/cn/java/j-lo-java8streamapi/index.html
-        //http://ifeve.com/stream/
-        //https://blog.csdn.net/songhaifengshuaige/article/details/79264851
 
 
 
