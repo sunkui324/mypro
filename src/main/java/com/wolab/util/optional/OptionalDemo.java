@@ -5,12 +5,16 @@ package com.wolab.util.optional;
  * 展示Optional类方法的说明和使用.
  */
 
+import com.wolab.model.User;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
 public class OptionalDemo {
     public static void main(String[] args) {
-        //创建Optional实例，也可以通过方法返回值获得
+      //创建Optional实例，也可以通过方法返回值获得
         Optional<String> name = Optional.of("Sanaulla");
 
         //创建没有值得optional实例,例如值'null'
@@ -66,6 +70,18 @@ public class OptionalDemo {
         Optional<String> anotherName=Optional.of("Sana");
         Optional<String> shortName=anotherName.filter((value)-> value.length()>6);
         System.out.println(shortName.orElse("The name is less than 6 characters"));
+
+
+
+        // 空判断
+        List<User> list=new ArrayList<>();
+        User user=new User();
+        user.setAge(17);
+        list.add(user);
+        Optional<User> userOptional=list.stream()
+                .filter(e -> e.getAge()>18)
+        .findFirst();
+        System.out.println(userOptional.orElseGet(()-> new User()).getDueDate());
 
 
 
