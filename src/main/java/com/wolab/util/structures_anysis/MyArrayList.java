@@ -149,7 +149,7 @@ public class MyArrayList<E> extends AbstractList<E>
     }
 
     private void ensureExplicitCapacity(int minCapacity) {
-        modCount++;
+        modCount++;  //这句话的作用是用来记录对ArrayList的每一次操作,我们知道在对集合进行迭代的时候，不能对集合进行remove的操作，它就是通过对比这个值来判断的.
 
         // overflow-conscious code 容量超出 增长
         if (minCapacity - elementData.length > 0)
