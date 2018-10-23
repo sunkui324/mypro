@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -41,12 +42,18 @@ public class JavaParserUtil {
         int i=0;
         for (String file : Files.pathList) {
             System.out.println("文件数量:"+Files.pathList.size()+"解析第"+(i++)+"个");
+
             Runnable r=() ->{
                 FileInputStream fileInputStream = null;
                 try {
                     fileInputStream = new FileInputStream(new File(file));
                     CompilationUnit compilationUnit = JavaParser.parse(fileInputStream);
-                    return matchSql(compilationUnit.toString());
+                    HashSet tables=new HashSet();
+                    Matcher matcher = p.matcher(compilationUnit.toString());
+
+                    while (matcher.find()) {
+                        tables.add(matcher.group());
+                    }
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } finally {
@@ -64,13 +71,7 @@ public class JavaParserUtil {
     }
 
     public  HashSet matchSql(String sql) {
-        HashSet tables=new HashSet();
-        Matcher matcher = p.matcher(sql);
-
-        while (matcher.find()) {
-            tables.add(matcher.group());
-        }
-        return tables;
+        return new HashSet();
     }
 
     private static class Files {
@@ -79,7 +80,14 @@ public class JavaParserUtil {
 
         HashSet<String> tables = new HashSet<>();
         static {
-            String path = "D:\\workspace\\jlender2\\pay-platform\\src\\main\\java\\com\\wolaidai\\payment";
+            //D:\workspace\finance-report\frs-common
+            //D:\workspace\finance-report\frs-core
+            //D:\workspace\finance-report\frs-service
+            //D:\workspace\finance-report\frs-web
+            //D:\workspace\finance-report\payment
+            //D:\workspace\finance-report\frs-service
+
+            String path = "D:\\workspace\\finance-report\\frs-common\\src\\main\\java\\com\\welab\\finance";
             getAllJavaFiles(path);
         }
 
@@ -100,7 +108,7 @@ public class JavaParserUtil {
 
 
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args){
         JavaParserUtil myJavaParser = new JavaParserUtil();
         HashSet hashSet=myJavaParser.loading();
 
@@ -108,5 +116,6 @@ public class JavaParserUtil {
         while(iter.hasNext()){
             System.out.println(iter.next());
         }
+
     }
 }
